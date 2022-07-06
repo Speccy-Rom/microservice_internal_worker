@@ -11,11 +11,11 @@ async def pow_chat_message_rpc(message: aiormq.types.DeliveredMessage):
     incoming_message = incoming_message_dict["message"]
     hash_result, calculate_elapsed_time = (1, 1)  # await helpers.PoW(incoming_message, 16).calculate()
 
-    outcoming_message_dict = {}
-    outcoming_message_dict["username"] = "internal_worker"
-    outcoming_message_dict[
-        "message"] = f"POW RPC {incoming_message} hash:{hash_result} elapsed time:{calculate_elapsed_time}"
-    outcoming_message_dict["source"] = "internal_worker"
+    outcoming_message_dict = {
+        "username": "internal_worker",
+        "message": f"POW RPC {incoming_message} hash:{hash_result} elapsed time:{calculate_elapsed_time}",
+        "source": "internal_worker",
+    }
 
     outcoming_message_bytes = json.dumps(outcoming_message_dict).encode()
 

@@ -20,7 +20,7 @@ class PoW:
             # check if this is a valid result, below the target
             if int(hash_result, 16) < target:
                 print(("Success with nonce %d" % nonce))
-                print(("Hash is %s" % hash_result))
+                print(f"Hash is {hash_result}")
                 return (hash_result, nonce)
 
         print(("Failed after %d (max_nonce) tries" % nonce))
